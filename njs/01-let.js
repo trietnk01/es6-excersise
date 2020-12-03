@@ -184,7 +184,7 @@ student.showInfo();*/
     }
 }
 console.log(getCourse("ES6",20,false));*/
-function getCourse(name,price,free){
+/*function getCourse(name,price,free){
     return {
         name,
         price,
@@ -199,7 +199,60 @@ function getCourse(name,price,free){
             console.log(`${name + price +free + delimiter}`);
         }
     }
-}
-var myCourse=getCourse("ES6",20,false);
-myCourse.showInfo3("dsfdsfds");
+}*/
+//var myCourse=getCourse("ES6",20,false);
+//myCourse.showInfo3("dsfdsfds");
 //console.log(myCourse);
+/*let proPrefix="support_";
+let bootstrapSupport={
+    [proPrefix+"chrome"]:true,
+    [proPrefix+"ie"]:true,
+    [proPrefix+"firefox"]:false
+}
+console.log(bootstrapSupport);*/
+
+/*class Student{
+    constructor(code,name,age){
+        this.code=code;
+        this.name=name;
+        this.age=age;
+    }
+    showInfo(){
+        return this.code +"-"+this.name+"-"+this.age;
+    }
+    getAge(){
+        let today=new Date();
+        let year = today.getFullYear();
+        return year - this.age;
+    }
+}
+let studentObj=new Student("SV001","nguyenkimdien",42);
+console.log(studentObj);
+console.log(this);*/
+class Person{
+    constructor(code,name,age){
+        this.code=code;
+        this.name=name;
+        this.age=age;
+    }
+    showInfo(){
+        console.log(this.code +"-"+this.name+"-"+this.age);
+    }
+    getAge(){
+        let today=new Date();
+        let year = today.getFullYear();
+        return year - this.age;
+    }
+}
+class Student extends Person{
+    constructor(name,code,age,score){
+        super(name,code,age);
+        this.score=score;
+    }
+    showInfo(){
+        super.showInfo();
+        console.log("-"+this.score);
+    }
+}
+let studentObj=new Student("Peter","123",1998,80);
+studentObj.showInfo();
